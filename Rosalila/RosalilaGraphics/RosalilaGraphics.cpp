@@ -154,8 +154,6 @@ RosalilaGraphics::RosalilaGraphics()
          exit(12);
     }
 
-    shadow_texture = getTexture(assets_directory+"/shadow.png");
-
     return;
 }
 
@@ -320,17 +318,18 @@ void RosalilaGraphics::draw2DImage	(
     glTranslatef(translate_x,translate_y, 1.0);
     glRotatef(-rotation, 0, 0, 1.0);
 
-
-    glBindTexture( GL_TEXTURE_2D, shadow_texture->getTexture() );
     glColor4ub(color_effects.getRed(), color_effects.getGreen(), color_effects.getBlue(),color_effects.getAlpha());
     glEnable(GL_BLEND);
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
 
-
-
-
     if((flat_shadow.shadow_x!=0 || flat_shadow.shadow_y!=0) && flat_shadow.points.size()>0)
     {
+        glBindTexture( GL_TEXTURE_2D, flat_shadow.image->getTexture() );
+
+    glColor4ub(color_effects.getRed(), color_effects.getGreen(), color_effects.getBlue(),color_effects.getAlpha());
+    glEnable(GL_BLEND);
+    glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+
         glColor4ub(100,100,100,100);
 
         if(x1>=flat_shadow.shadow_x)// && false)

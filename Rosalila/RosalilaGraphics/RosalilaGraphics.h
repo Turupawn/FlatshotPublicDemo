@@ -112,8 +112,6 @@ class RosalilaGraphics
     list<Explosion*> explosions;
     Cube cube;
 
-    Image* shadow_texture;
-
     RosalilaGraphics();
     ~RosalilaGraphics();
     Image* getTexture(std::string filename);

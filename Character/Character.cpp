@@ -25,6 +25,9 @@ Character::Character(Sound* sonido,RosalilaGraphics* painter,Receiver* receiver,
 
     this->iteration=0;
 
+    //Flat Shadow
+    flat_shadow_texture = NULL;
+
     loadFromXML();
 }
 
@@ -146,14 +149,17 @@ void Character::loadMainXML()
         sprites[sprites_orientation]=sprites_vector;
     }
 
-    if(main_file->FirstChild("ShadowPoints")!=NULL)
-    for(TiXmlNode* point_node=main_file->FirstChild("ShadowPoints")->FirstChild("Point");
-            point_node!=NULL;
-            point_node=point_node->NextSibling("Point"))
+    if(main_file->FirstChild("FlatShadow")!=NULL)
     {
-        int x=atoi(point_node->ToElement()->Attribute("x"));
-        int y=atoi(point_node->ToElement()->Attribute("y"));
-        shadow_align_points.push_back(new Point(x,y));
+        flat_shadow_texture = painter->getTexture(assets_directory+directory+"sprites/"+main_file->FirstChild("FlatShadow")->ToElement()->Attribute("image_path"));
+        for(TiXmlNode* point_node=main_file->FirstChild("FlatShadow")->FirstChild("Point");
+                point_node!=NULL;
+                point_node=point_node->NextSibling("Point"))
+        {
+            int x=atoi(point_node->ToElement()->Attribute("x"));
+            int y=atoi(point_node->ToElement()->Attribute("y"));
+            shadow_align_points.push_back(new Point(x,y));
+        }
     }
 }
 
@@ -664,7 +670,7 @@ void Character::parrentRender()
         Color(255,255,255,255),
         0,0,
         true,
-        FlatShadow(2,60,0,700,-500,shadow_align_points));
+        FlatShadow(flat_shadow_texture,2,60,0,700,-500,shadow_align_points));
 
     if(receiver->isKeyDown(SDLK_h))
     {
