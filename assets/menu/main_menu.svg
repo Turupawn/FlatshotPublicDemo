@@ -15,7 +15,7 @@
    height="768"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
+   inkscape:version="0.48.5 r10040"
    sodipodi:docname="main_menu.svg">
   <defs
      id="defs9" />
@@ -29,11 +29,11 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1366"
-     inkscape:window-height="718"
+     inkscape:window-height="746"
      id="namedview7"
      showgrid="false"
      inkscape:zoom="0.5050821"
-     inkscape:cx="733.261"
+     inkscape:cx="741.1805"
      inkscape:cy="364.68356"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -58,7 +58,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <image
-       sodipodi:absref="/home/turupawn/Chicas del espacio demo - Linux 64 bit/menu/startscreen.png"
+       sodipodi:absref="/home/turupawn/Projects/STG/assets/menu/startscreen.png"
        xlink:href="startscreen.png"
        fade_in_speed="5"
        fade_in_initial="0"
@@ -68,15 +68,26 @@
        height="768"
        width="1366" />
     <image
-       sodipodi:absref="/home/turupawn/Chicas del espacio demo - Linux 64 bit/menu/button1.png"
+       sodipodi:absref="/home/turupawn/Projects/STG/assets/menu/button1.png"
        xlink:href="button1.png"
-       load_menu="selection_menu.svg"
+       load_menu="instructions.svg"
        action="load"
        type="button"
        width="265"
        height="138"
        id="image2995"
-       x="1403.8839"
+       x="1485.0588"
        y="26.164104" />
+    <image
+       sodipodi:absref="/home/turupawn/Projects/STG/assets/menu/button1.png"
+       xlink:href="button1.png"
+       load_menu="selection_menu.svg"
+       action="Arcade"
+       type="button"
+       width="265"
+       height="138"
+       id="image9"
+       x="1485.0588"
+       y="226.16411" />
   </g>
 </svg>
